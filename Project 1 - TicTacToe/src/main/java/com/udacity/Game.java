@@ -151,7 +151,7 @@ public class Game {
     public String checkGameWinner(char [][]grid){
         String result = "None";
         boolean winer = true;
-        
+
         // Check tie
         boolean tieGame = true;
         for (int row = 0; row <= 2; ++row)
@@ -162,12 +162,9 @@ public class Game {
             return "Tie game";
             // Player wins
          if (runOfThree('O'))
-            return "O win";
+            return "O won";
 
-            // Computer wins
-       // else if (runOfThree('X'))
-           // return "Computer Win";
-       // return eStatus.IN_PROGRESS;
+
          winer = runOfThree('x');
         if(winer)
             return "X won";
@@ -177,8 +174,6 @@ public class Game {
 
         return result;
     }
-
-
     // Run of three?
     private boolean runOfThree(char c) {
 
