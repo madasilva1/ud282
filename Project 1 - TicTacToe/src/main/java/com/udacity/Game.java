@@ -150,10 +150,66 @@ public class Game {
      */
     public String checkGameWinner(char [][]grid){
         String result = "None";
-        //Student code goes here ...
+        boolean winer = true;
+        
+        // Check tie
+        boolean tieGame = true;
+        for (int row = 0; row <= 2; ++row)
+            for (int col = 0; col <= 2; ++col)
+                if (grid[row][col] == '-')
+                    tieGame = false;
+        if(tieGame)
+            return "Tie game";
+            // Player wins
+         if (runOfThree('O'))
+            return "O win";
+
+            // Computer wins
+       // else if (runOfThree('X'))
+           // return "Computer Win";
+       // return eStatus.IN_PROGRESS;
+         winer = runOfThree('x');
+        if(winer)
+            return "X won";
+        winer = runOfThree('o');
+         if(winer)
+             return "O won";
+
         return result;
     }
 
+
+    // Run of three?
+    private boolean runOfThree(char c) {
+
+        // Check rows
+        for (int row = 0; row <= 2; ++row) {
+            if ((grid[row][0] == c) &&
+                    (grid[row][1] == c) &&
+                    (grid[row][2] == c))
+                return true;
+        }
+
+        // Check columns
+        for (int col = 0; col <= 2; ++col) {
+            if ((grid[0][col] == c) &&
+                    (grid[1][col] == c) &&
+                    (grid[2][col] == c))
+                return true;
+        }
+
+        // Check diagonals
+        if ((grid[0][0] == c) &&
+                (grid[1][1] == c) &&
+                (grid[2][2] == c))
+            return true;
+        if ((grid[2][0] == c) &&
+                (grid[1][1] == c) &&
+                (grid[0][2] == c))
+            return true;
+
+        return false;
+    }
     /**
      * Main function
      * @param args command line arguments
