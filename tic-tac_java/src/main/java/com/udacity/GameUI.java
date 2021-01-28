@@ -49,7 +49,7 @@ public class GameUI extends JPanel {
         newGameButton.addActionListener(new ActionListener() {  // connects the new game button to its buttonPressed method
             public void actionPerformed(ActionEvent e)
             {
-                newGameButtonPressed(false);
+                newGameButtonPressed(true);
             }
         });
 
@@ -58,7 +58,7 @@ public class GameUI extends JPanel {
         new2PlayerGameButton.addActionListener(new ActionListener() {  // connects the new game button to its buttonPressed method
             public void actionPerformed(ActionEvent e)
             {
-                newGameButtonPressed(true);
+                newGameButtonPressed(false);
             }
         });
 
