@@ -152,6 +152,13 @@ public class Game {
         String result = "None";
         boolean winer = true;
 
+         winer = runOfThree('x');
+        if(winer)
+            return "X won";
+        winer = runOfThree('o');
+         if(winer)
+             return "O won";
+
         // Check tie
         boolean tieGame = true;
         for (int row = 0; row <= 2; ++row)
@@ -160,19 +167,12 @@ public class Game {
                     tieGame = false;
         if(tieGame)
             return "Tie game";
-            // Player wins
-         if (runOfThree('O'))
+        // Player wins
+        if (runOfThree('O'))
             return "O won";
 
-
-         winer = runOfThree('x');
-        if(winer)
-            return "X won";
-        winer = runOfThree('o');
-         if(winer)
-             return "O won";
-
         return result;
+
     }
     // Run of three?
     private boolean runOfThree(char c) {
