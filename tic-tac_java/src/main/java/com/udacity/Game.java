@@ -69,7 +69,7 @@ public class Game {
      * @return boolean: true if play was successful, false if invalid play
      */
     public boolean playAt(int i, int j){
-        //check for index boundries
+        //check for index boundaries
         if(i>=3||j>=3||i<0||j<0)
             return false;
         //check if this position is available
@@ -93,7 +93,7 @@ public class Game {
     }
 
     /**
-     * Performs the winner chack and displayes a message if game is over
+     * Performs the winner check and displays a message if game is over
      * @return true if game is over to start a new game
      */
     public boolean doChecks() {
@@ -136,7 +136,6 @@ public class Game {
                 turn = 'x';
             }
         }
-        return;
     }
 
 
@@ -150,21 +149,23 @@ public class Game {
      */
     public String checkGameWinner(char [][]grid){
         String result = "None";
-        boolean winer = true;
+        boolean winner;
 
-         winer = runOfThree('x');
-        if(winer)
+         winner = runOfThree('x');
+        if(winner)
             return "X won";
-        winer = runOfThree('o');
-         if(winer)
+        winner = runOfThree('o');
+         if(winner)
              return "O won";
 
         // Check tie
         boolean tieGame = true;
         for (int row = 0; row <= 2; ++row)
             for (int col = 0; col <= 2; ++col)
-                if (grid[row][col] == '-')
+                if (grid[row][col] == '-') {
                     tieGame = false;
+                    break;
+                }
         if(tieGame)
             return "Tie game";
         // Player wins
@@ -198,12 +199,9 @@ public class Game {
                 (grid[1][1] == c) &&
                 (grid[2][2] == c))
             return true;
-        if ((grid[2][0] == c) &&
+        return (grid[2][0] == c) &&
                 (grid[1][1] == c) &&
-                (grid[0][2] == c))
-            return true;
-
-        return false;
+                (grid[0][2] == c);
     }
     /**
      * Main function
